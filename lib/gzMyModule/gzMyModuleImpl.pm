@@ -13,6 +13,7 @@ gzMyModule
 
 A KBase module: gzMyModule
 This sample module contains one small method - filter_contigs.
+GMZ additions, 3/8/2016.
 
 =cut
 
@@ -148,6 +149,10 @@ sub filter_contigs
         die "min_length parameter shouldn't be negative (".$min_length.")";
     }
     
+    if (exists $params->{'notes'}) {
+    	my $notes = $params->{'notes'};
+    }
+    
     my $token=$ctx->token;
     my $provenance=$ctx->provenance;
     my $wsClient=Bio::KBase::workspace::Client->new($self->{'workspace-url'},token=>$token);
@@ -188,6 +193,7 @@ sub filter_contigs
                 'type'=>'KBaseGenomes.ContigSet',
                 'data'=>$contigSet,
                 'name'=>$contigset_id,
+                'notes'=>$notes,
                 'provenance'=>$provenance
             }]
         });
