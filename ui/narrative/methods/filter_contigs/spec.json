@@ -1,9 +1,9 @@
 {
-    "ver": "0.0.1",
+    "ver": "0.0.2",
     "authors": [
         "polygrant"
     ],
-    "contact": "help@kbase.us",
+    "contact": "zaneg@missouri.edu",
     "categories": ["active"],
     "widgets": {
         "input": null,
@@ -32,7 +32,18 @@
                 "validate_as": "int",
                 "min_integer" : 0
             }
-        }
+        },
+        {
+            "id": "notes",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "defaul_values": ["optional note"],
+            "field_type": "text",
+            "text_options": {
+                "validate_as": "text"
+            }
+        }    
     ],
     "behavior": {
         "service-mapping": {
@@ -51,6 +62,9 @@
                 {
                     "input_parameter": "min_length",
                     "target_property": "min_length"
+                },
+                {   "input_parameter": "notes",
+                    "target_property": "notes"
                 }
             ],
             "output_mapping": [
@@ -65,6 +79,10 @@
                 {
                     "input_parameter": "min_length",
                     "target_property": "input_min_length"
+                },
+                {   
+                    "input_parameter": "notes",
+                    "target_property": "input_notes"
                 },
                 {
                     "narrative_system_variable": "workspace",
