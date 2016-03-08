@@ -38,7 +38,7 @@
             "optional": true,
             "advanced": false,
             "allow_multiple": false,
-            "defaul_values": ["optional note"],
+            "default_values": ["optional note"],
             "field_type": "text",
             "text_options": {
                 "validate_as": "text"
